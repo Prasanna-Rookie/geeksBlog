@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+   .post-container {
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.post-body {
+  overflow: hidden; /* This creates a new block formatting context */
+}
+
+.post-thumbnail {
+  float: right;
+  width: 450px;
+  height: auto;
+  margin: 0 0 20px 30px; /* Top Right Bottom Left */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  shape-outside: margin-box; /* Helps with text flow */
+}
+
+.post-text {
+  text-align: justify;
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Clearfix for floated elements */
+.post-body::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .post-thumbnail {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+}
+  
+  .post-title {
+    font-size: 2rem;
+  }
+
+/* Add to your CSS */
+.post-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #ff8a00, #e52e71);
+  margin: 15px 0;
+}
+
+.post-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+    </style>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="post-container">
+        <div class="post-content">
+          <h1 class="post-title"><%= post.title %></h1>
+          
+          <div class="post-body">
+            <img src="<%= post.thumbnail || '/assets/astronaut_lost_in_space_by_v1ruben_dgmh1x4.png' %>" 
+                 alt="<%= post.title %>" 
+                 class="post-thumbnail">
+            
+            <div class="post-text">
+              <p class="post-paragraph"><%= post.content %></p>
+            </div>
+            <a href="/">Back to Home</a>
+          </div>
+        </div>
+      </div>
+      <br><br><br><br><br>
+
+      <%- include("partials/footer.ejs") %>
+</body>
+</html>

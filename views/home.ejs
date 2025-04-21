@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+  </head>
+ 
+  <body>
+    <%- include("partials/header.ejs") %>
+    <div class=" centerbanner px-4 pt-5 my-5 text-center border-bottom">
+      <h1 style="color: white;" class="display-4 fw-bold text-body-emphasis">
+        Welcome to Blog for Geeks
+      </h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+          A space where tech enthusiasts, coders, and innovators come together
+          to explore the latest trends, share insights, and fuel their passion
+          for technology. Stay curious, stay geeky!
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <a href="/NewPost" class="btn btn-primary btn-lg px-4 me-sm-3">Create a Post</a>
+          <a href="#displaySection" class="btn btn-outline-secondary btn-lg px-4">Blog posts</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Display the Blog Content -->
+<div id="displaySection">
+    <h2 class="blog-heading">Sample Blog posts</h2>
+    <br /><br />
+    <div class="d-flex flex-column align-items-center">
+      <div class="col-md-8">
+        <% if (posts.length === 0) { %>
+        <p class="card-text mb-auto">
+          No blog posts yet. Start by creating one!
+        </p>
+        <% } else { %> <% posts.forEach(post => { %>
+        <div class="card mb-4 w-100 shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <div class="card-content">
+            <div class="row">
+            <div class="col-md-8">
+              <h3 class="mb-0">
+                <a class="text-dark" href="/post/<%= post.id %>"
+                  ><%= post.title %></a
+                >
+              </h3>
+              <div class="mb-1 text-muted"><%= post.createdAt %></div>
+              <p class="card-text mb-auto">
+                <% if (post.content) { %>
+                  <%= post.content.substring(0, 600) %>...
+                <% } else { %>
+                  No content available
+                <% } %>
+              </p>
+              
+              <!-- thumbnail -->
+
+
+            </div>
+            <div class="col-md-4 d-flex justify-content-end align-items-center">
+              <% if (post.thumbnail) { %> 
+              <img
+                src="<%= post.thumbnail %>"
+              alt="Thumbnail" class="img-fluid rounded" style=" max-height:
+              200px; object-fit: cover;" /> <% } else { %>
+              <div class="text-muted">No thumbnail available</div>
+              <% } %>
+            </div>  
+          </div>
+        </div>
+
+            <!--thumbnail code ends here-->
+
+
+          </div>
+         <div class="card-icons d-flex justify-content-left">  <!--  mt-3 d-flex justify-content-left gap-2 -->
+            <a href="/post/<%= post.id %>" class="btn btn-sm btn-outline-primary">
+              <i class="fa-solid fa-eye"></i>
+            </a>
+            <a href="/edit/<%= post.id %>" class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <form action="/delete/<%= post.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this post?')">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+            </form>
+        </div>
+        </div>
+        <% }); %> <% } %>
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br>
+
+  <%- include("partials/footer.ejs") %>
+  </body>
+</html>

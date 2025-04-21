@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | My Blog Project</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Embedded CSS for demo purposes (move to external file if needed) */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h1 {
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    .tech-stack {
+      background: #f0f8ff;
+      padding: 15px;
+      border-left: 4px solid #3498db;
+      margin: 20px 0;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .cta a:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+  <div class="container">
+    <h1>About This Project</h1>
+    
+    <p>Welcome! This blog is a demonstration project built to showcase my skills in <strong>web development and design</strong>. It includes fully functional features like responsive layouts, dynamic content, and clean code architecture.</p>
+    
+    <h2>Developer Details</h2>
+    <p>Created by <strong>Prasanna G</strong>, a passionate Full stack Developer specializing in HTML, CSS, JavaScript, bootstrap, Node JS, Angular, MySQL, PHP, Java</p>
+    
+    <div class="tech-stack">
+      <h3>Tech Stack Used</h3>
+      <ul>
+        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), Bootstrap</li>
+        <li><strong>Templating Engine:</strong> EJS(Embedded JavaScript)</li>
+        <li><strong>Backend:</strong> Node JS, Express JS</li>
+        <li><strong>Tools:</strong> VS Code</li>
+      </ul>
+    </div>
+    
+
+    <h2>Key Features</h2>
+    <ul>
+      <li>✅ Responsive design (CSS Grid/Flexbox), semantic HTML5</li>
+      <li>✅ Node.js + Express with EJS templating</li>
+      <li>✅ Blog posts rendered via EJS</li>
+      <li>✅ Hosted on [Platform]</li>
+    </ul>
+    
+    <div class="note">
+      <p><strong>Note:</strong> This is a portfolio project. Content and design are for demonstration purposes only.</p>
+    </div>
+    
+    <div class="cta">
+      <a href="https://github.com/yourusername" target="_blank">View My GitHub</a>
+      <a href="#" style="margin-left: 10px;">Contact Me</a>
+    </div>
+  </div>
+</body>
+</html>

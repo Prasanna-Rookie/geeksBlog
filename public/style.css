@@ -1,0 +1,94 @@
+.centerbanner {
+  height: 650px;
+}
+
+.blog-heading {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  text-align: center;
+  font-size: 2.5rem; /* Adjust size as needed */
+  font-weight: bold;
+  margin-top: 20px;
+}
+/* Ensure the card uses Flexbox for layout */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Make the card take full height of its container */
+}
+
+/* Make the card body a flex container to align content properly */
+.card-body {
+  flex: 1; /* Allow the card body to grow and fill the available space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Allow the content area to grow and fill the space */
+.card-content {
+  flex: 1; /* This ensures the content takes up the remaining space */
+}
+
+/* Style for the icons container */
+.card-icons {
+  margin-top: auto; /* Push the icons to the bottom of the card */
+  display: flex;
+  justify-content: flex-end; /* Align icons to the right */
+  gap: 10px; /* Add spacing between icons */
+  padding-top: 10px; /* Add some spacing above the icons */
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+label {
+    color: #333;
+}
+
+.btn-send {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 80%;
+    margin-left: 3px;
+    }
+.help-block.with-errors {
+    color: #ff5050;
+    margin-top: 5px;
+
+}
+
+.card{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+/* design for image preview */
+.img-preview {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px dashed #ccc;
+  transition: all 0.3s ease;
+}
+
+.uploaded-image {
+  border: 1px solid #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+.btn-rounded {
+  border-radius: 50px;
+}
+
+.position-absolute {
+  cursor: pointer;
+}
+
+/* end here */
+
